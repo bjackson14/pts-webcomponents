@@ -1,6 +1,9 @@
-class LoadingBar extends HTMLElement {
+export class LoadingBar extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.innerHTML = `<p>Hello, World!</p>`;
   }
