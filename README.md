@@ -28,7 +28,7 @@ There are four steps to impment this library in Angular.
 
 First run ```npm install pts-webcomponents``` to add the library to the ```package.json```.
 <br>
-Then import `definePTSElements` from `pts-webcomponents.esm.js` using a `<script>` tag in the `index.html` file. Make sure `window` is passed into the `definePTSElements` function.
+Then import the web component from `pts-webcomponents.esm.js` using a `<script>` tag in the `index.html` file.
 ```
 <!doctype html>
 <html lang="en">
@@ -39,8 +39,7 @@ Then import `definePTSElements` from `pts-webcomponents.esm.js` using a `<script
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script type="module">
-    import { definePTSElements } from '../node_modules/pts-webcomponents/dist/pts-webcomponents.esm.js';
-    definePTSElements(window);
+    import { LoadingBar } from '../node_modules/pts-webcomponents/dist/pts-webcomponents.esm.js';
   </script>
 </head>
 <body>
