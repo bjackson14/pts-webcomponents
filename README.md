@@ -21,6 +21,47 @@ Import the JavaScript file using a `<script>` tag into the html file.
 </html>
 ```
 
+## React Implementation
+First run `npm install pts-webcomponents` to add the library to the `package.json`.
+<br>
+Then in the `App.js` file, import the web component and add the web component's tag to the html.
+```
+import './App.css';
+import { LoadingBar } from 'pts-webcomponents';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>PTS with React</h1>
+      <loading-bar></loading-bar>
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Vue Implementation
+### Note: Vue implementation tests done with Vue 3. No other version has been tested.
+
+First run `npm install pts-webcomponents` to add the library to the `package.json`.
+<br>
+Then in the `main.js` file import the web component library.
+```
+import { createApp } from 'vue'
+import App from './App.vue'
+import 'pts-webcomponents'
+
+createApp(App).mount('#app')
+```
+Then add the component tag in `App.vue'.
+```
+<template>
+  <h1>PTS in Vue</h1>
+  <loading-bar></loading-bar>
+</template>
+```
+
 ## Angular Implementation
 ### Note: Angular implmentation tests done with Angular 18. No other version has been tested.
 
@@ -68,24 +109,4 @@ Finally, add the tag to the `component.html` file.
 ```
 <h1>Angular with PTS</h1>
 <loading-bar></loading-bar>
-```
-
-## React Implementation
-First run `npm install pts-webcomponents` to add the library to the `package.json`.
-<br>
-Then in the `App.js` file, import the web component and add the web component's tag to the html.
-```
-import './App.css';
-import { LoadingBar } from 'pts-webcomponents';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>PTS with React</h1>
-      <loading-bar></loading-bar>
-    </div>
-  );
-}
-
-export default App;
 ```
