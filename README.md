@@ -1,7 +1,7 @@
 # PTS Webcomponents
 A webcomponent library written purely in TypeScript that can be used with or without a framework.
 
-# HTML Implementation
+## HTML Implementation
 Import the JavaScript file using a `<script>` tag into the html file.
 
 ```
@@ -21,12 +21,12 @@ Import the JavaScript file using a `<script>` tag into the html file.
 </html>
 ```
 
-# Angular Implementation
+## Angular Implementation
 ### Note: Angular implmentation tests done with Angular 18. No other version has been tested.
 
 There are four steps to impment this library in Angular.
 
-First run ```npm install pts-webcomponents``` to add the library to the ```package.json```.
+First run `npm install pts-webcomponents` to add the library to the `package.json`.
 <br>
 Then import the web component from `pts-webcomponents.esm.js` using a `<script>` tag in the `index.html` file.
 ```
@@ -68,4 +68,24 @@ Finally, add the tag to the `component.html` file.
 ```
 <h1>Angular with PTS</h1>
 <loading-bar></loading-bar>
+```
+
+## React Implementation
+First run `npm install pts-webcomponents` to add the library to the `package.json`.
+<br>
+Then in the `App.js` file, import the web component and add the web component's tag to the html.
+```
+import './App.css';
+import { LoadingBar } from 'pts-webcomponents';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>PTS with React</h1>
+      <loading-bar></loading-bar>
+    </div>
+  );
+}
+
+export default App;
 ```
