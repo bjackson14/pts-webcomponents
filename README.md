@@ -2,7 +2,7 @@
 A webcomponent library written purely in TypeScript that can be used with or without a framework.
 
 ## HTML Implementation
-Import the JavaScript file using a `<script>` tag into the html file. To import all web components import `index.js`.
+Import the JavaScript file using a `<script>` tag into the html file. To use all web components change `src` to `index.ks`
 
 ```
 <!DOCTYPE html>
@@ -11,9 +11,7 @@ Import the JavaScript file using a `<script>` tag into the html file. To import 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PTS Webcomponents</title>
-    <script type="module">
-      import './loading-bar.js';
-    </script>
+    <script type="module" src="./loading-bar.js"></script>
   </head>
   <body>
     <my-webcomponent></my-webcomponent>
