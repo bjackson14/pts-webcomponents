@@ -4,10 +4,13 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 
 export default {
-  input: 'src/index.ts',
+  input: [
+    'src/index.ts',
+    'src/loading-bar/loading-bar.ts'
+  ],
   output: [
     {
-      file: 'dist/pts-webcomponents.esm.js',
+      dir: 'dist',
       format: 'esm',
       name: 'PTSWebcomponents',
       sourcemap: true

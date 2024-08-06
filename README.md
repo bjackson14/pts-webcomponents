@@ -2,7 +2,7 @@
 A webcomponent library written purely in TypeScript that can be used with or without a framework.
 
 ## HTML Implementation
-Import the JavaScript file using a `<script>` tag into the html file.
+Import the JavaScript file using a `<script>` tag into the html file. To import all web components import `index.js`.
 
 ```
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ Import the JavaScript file using a `<script>` tag into the html file.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PTS Webcomponents</title>
     <script type="module">
-      import './pts-webcomponents.esm.js';
+      import './loading-bar.js';
     </script>
   </head>
   <body>
@@ -24,10 +24,10 @@ Import the JavaScript file using a `<script>` tag into the html file.
 ## React Implementation
 First run `npm install pts-webcomponents` to add the library to the `package.json`.
 <br>
-Then in the `App.js` file, import the web component and add the web component's tag to the html.
+Then in the `App.js` file, import the web component and add the web component's tag to the html. To import all web components, import `pts-webcomponents/dist`.
 ```
 import './App.css';
-import { LoadingBar } from 'pts-webcomponents';
+import { LoadingBar } from 'pts-webcomponents/dist/loading-bar';
 
 function App() {
   return (
@@ -46,11 +46,11 @@ export default App;
 
 First run `npm install pts-webcomponents` to add the library to the `package.json`.
 <br>
-Then in the `main.js` file import the web component library.
+Then in the `main.js` file import the web component library. To import all web components, import `pts-webcomponents/dist`.
 ```
 import { createApp } from 'vue'
 import App from './App.vue'
-import 'pts-webcomponents'
+import 'pts-webcomponents/dist/loading-bar'
 
 createApp(App).mount('#app')
 ```
@@ -69,7 +69,7 @@ There are four steps to impment this library in Angular.
 
 First run `npm install pts-webcomponents` to add the library to the `package.json`.
 <br>
-Then import the web component from `pts-webcomponents.esm.js` using a `<script>` tag in the `index.html` file.
+Then import the web component from `pts-webcomponents.esm.js` using a `<script>` tag in the `index.html` file. To import all web components, import `../node_modules/pts-webcomponents/dist`.
 ```
 <!doctype html>
 <html lang="en">
@@ -80,7 +80,7 @@ Then import the web component from `pts-webcomponents.esm.js` using a `<script>`
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script type="module">
-    import { LoadingBar } from '../node_modules/pts-webcomponents/dist/pts-webcomponents.esm.js';
+    import { LoadingBar } from '../node_modules/pts-webcomponents/dist/loading-bar';
   </script>
 </head>
 <body>
