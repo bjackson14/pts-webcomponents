@@ -11,9 +11,9 @@ export class LoadingBar extends HTMLElement {
   private render() {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.innerHTML = `
-      <div class="container">
-        <div class="background"></div>
-        <div class="foreground"></div>
+      <div part="container">
+        <div part="background"></div>
+        <div part="foreground"></div>
       </div>
     `;
   }
@@ -31,15 +31,15 @@ export class LoadingBar extends HTMLElement {
       }
     `, 0);
     css.insertRule(`
-      .container { 
-        position: relative; 
-        height: 1rem; 
-        width: 100%; 
-        overflow: hidden; 
+      div[part="container"] {
+        position: relative;
+        height: 1rem;
+        width: 100%;
+        overflow: hidden;
       }
     `, 1);
     css.insertRule(`
-      .background { 
+      div[part="background"] { 
         position: absolute; 
         top: 0; 
         left: 0; 
@@ -49,7 +49,7 @@ export class LoadingBar extends HTMLElement {
       }
     `, 2);
     css.insertRule(`
-      .foreground { 
+      div[part="foreground"] { 
         position: absolute; 
         top: 0; 
         left: 0; 
