@@ -1,6 +1,15 @@
 export class LoadingBar extends HTMLElement {
+  get animationDuration(): string | null {
+    return this.getAttribute('animation-duration');
+  }
+
+  set animationDuration(val: string) {
+    this.setAttribute('animation-duration', val);
+  }
+
   constructor() {
     super();
+    this.checkAnimationTime();
   }
 
   connectedCallback() {
@@ -56,7 +65,7 @@ export class LoadingBar extends HTMLElement {
         background-color: #5692F4; 
         width: 10%; 
         height: 100%; 
-        animation: scroll 3s linear infinite; 
+        animation: scroll ${this.animationDuration} linear infinite; 
       }
     `, 3);
 
@@ -64,8 +73,14 @@ export class LoadingBar extends HTMLElement {
       this.shadowRoot.adoptedStyleSheets = [css];
     }
   }
+
+  private checkAnimationTime() {
+    if (!this.animationDuration || (this.animationDuration && !(/^\d+(s|ms)$/).test(this.animationDuration))) {
+      this.animationDuration = '3s';
+    }
+  }
 }
 
-customElements.define('loading-bar', LoadingBar);
+customElements.define('pts-loading-bar', LoadingBar);
 
 export default LoadingBar;
