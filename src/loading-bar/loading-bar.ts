@@ -5,19 +5,30 @@ export class LoadingBar extends HTMLElement {
 
   set animationDuration(val: string) {
     this.setAttribute('animation-duration', val);
+    this.createStyles();
+  }
+
+  static get observedAttributes(): Array<string> {
+    return ['animation-duration'];
   }
 
   constructor() {
     super();
-    this.checkAnimationTime();
+    this.validateAnimationDuration(this.animationDuration);
   }
 
-  connectedCallback() {
+  public connectedCallback(): void {
     this.render();
     this.createStyles();
   }
 
-  private render() {
+  public attributeChangedCallback(attrName: string, oldVal: string, newVal: string): void {
+    if (attrName === 'animation-duration' && newVal !== oldVal && this.validateAnimationDuration(newVal)) {
+      this.animationDuration = newVal;
+    }
+  }
+
+  private render(): void {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.innerHTML = `
       <div part="container">
@@ -27,7 +38,7 @@ export class LoadingBar extends HTMLElement {
     `;
   }
 
-  private createStyles() {
+  private createStyles(): void {
     const css = new CSSStyleSheet();
     css.insertRule(`
       @keyframes scroll {
@@ -74,10 +85,12 @@ export class LoadingBar extends HTMLElement {
     }
   }
 
-  private checkAnimationTime() {
-    if (!this.animationDuration || (this.animationDuration && !(/^\d+(s|ms)$/).test(this.animationDuration))) {
+  private validateAnimationDuration(animationDuration: string | null): boolean {
+    if (!animationDuration || (animationDuration && !(/^\d+(s|ms)$/).test(animationDuration))) {
       this.animationDuration = '3s';
+      return false;
     }
+    return true;
   }
 }
 
