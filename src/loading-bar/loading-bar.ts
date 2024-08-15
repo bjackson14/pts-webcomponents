@@ -3,8 +3,13 @@ export class LoadingBar extends HTMLElement {
     return this.getAttribute('animation-duration');
   }
 
-  set animationDuration(val: string) {
-    this.setAttribute('animation-duration', val);
+  set animationDuration(val: string | null) {
+    if (val && this.validateAnimationDuration(val)) {
+      this.setAttribute('animation-duration', val);
+    } else {
+      // Sets default value if value passed in fails validation or is null
+      this.setAttribute('animation-duration', '3s');
+    }
     this.createStyles();
   }
 
@@ -14,7 +19,9 @@ export class LoadingBar extends HTMLElement {
 
   constructor() {
     super();
-    this.validateAnimationDuration(this.animationDuration);
+
+    // Calls setter which will validate animation duration passed in through HTML
+    this.animationDuration = this.animationDuration;
   }
 
   public connectedCallback(): void {
@@ -23,7 +30,7 @@ export class LoadingBar extends HTMLElement {
   }
 
   public attributeChangedCallback(attrName: string, oldVal: string, newVal: string): void {
-    if (attrName === 'animation-duration' && newVal !== oldVal && this.validateAnimationDuration(newVal)) {
+    if (attrName === 'animation-duration' && newVal !== oldVal) {
       this.animationDuration = newVal;
     }
   }
@@ -86,11 +93,10 @@ export class LoadingBar extends HTMLElement {
   }
 
   private validateAnimationDuration(animationDuration: string | null): boolean {
-    if (!animationDuration || (animationDuration && !(/^\d+(s|ms)$/).test(animationDuration))) {
-      this.animationDuration = '3s';
-      return false;
+    if (animationDuration && (animationDuration && (/^\d+(s|ms)$/).test(animationDuration))) {
+      return true;
     }
-    return true;
+    return false;
   }
 }
 
