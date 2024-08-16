@@ -10,7 +10,6 @@ export class LoadingBar extends HTMLElement {
       // Sets default value if value passed in fails validation or is null
       this.setAttribute('animation-duration', '3s');
     }
-    this.createStyles();
   }
 
   static get observedAttributes(): Array<string> {
@@ -32,6 +31,7 @@ export class LoadingBar extends HTMLElement {
   public attributeChangedCallback(attrName: string, oldVal: string, newVal: string): void {
     if (attrName === 'animation-duration' && newVal !== oldVal) {
       this.animationDuration = newVal;
+      this.createStyles();
     }
   }
 

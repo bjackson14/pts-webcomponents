@@ -2,7 +2,7 @@
 A webcomponent library written purely in TypeScript that can be used with or without a framework.
 
 ## HTML Implementation
-Import the JavaScript file using a `<script>` tag into the html file. To use all web components change `src` to `index.ks`
+Import the JavaScript file using a `<script>` tag into the html file. To use all web components change `src` to `index.js`
 
 ```
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ There are four steps to impment this library in Angular.
 
 First run `npm install pts-webcomponents` to add the library to the `package.json`.
 <br>
-Then import the web component from `pts-webcomponents.esm.js` using a `<script>` tag in the `index.html` file. To import all web components, import `../node_modules/pts-webcomponents/dist`.
+Then import the web component using a `<script>` tag in the `index.html` file. To import all web components, import `../node_modules/pts-webcomponents/dist`.
 ```
 <!doctype html>
 <html lang="en">
