@@ -4,7 +4,7 @@ export class LoadingBar extends HTMLElement {
   }
 
   set animationDuration(val: string | null) {
-    if (val && this.validateAnimationDuration(val)) {
+    if (val && (/^\d+(s|ms)$/).test(val)) {
       this.setAttribute('animation-duration', val);
     } else {
       // Sets default value if value passed in fails validation or is null
@@ -90,13 +90,6 @@ export class LoadingBar extends HTMLElement {
     if (this.shadowRoot) {
       this.shadowRoot.adoptedStyleSheets = [css];
     }
-  }
-
-  private validateAnimationDuration(animationDuration: string | null): boolean {
-    if (animationDuration && (animationDuration && (/^\d+(s|ms)$/).test(animationDuration))) {
-      return true;
-    }
-    return false;
   }
 }
 
